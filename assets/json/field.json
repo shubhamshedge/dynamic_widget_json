@@ -1,0 +1,107 @@
+{
+  "title": "Registration Form",
+  "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. .",
+  "fields": [
+    {
+      "key": "Name",
+      "type": "Input",
+      "label": "Enter Your Name",
+      "placeholder": "Name",
+      "value": "defaultValue",
+      "required": true
+    },
+    {
+      "key": "email1",
+      "type": "Email",
+      "label": "Email",
+      "placeholder": "Enter Email",
+      "value": "S@gmail.com",
+      "pattern": "[a-zA-Z0-9+._%-+]{1,256}\\@[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}(\\.[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25})+"
+    },
+    {
+      "key": "Address",
+      "type": "TextArea",
+      "label": "Enter Address",
+      "placeholder": "Enter Your Address Here...",
+      "value": "sda",
+      "required": true,
+      "maxline": 5
+    },
+    {
+      "key": "password1",
+      "type": "Password",
+      "label": "Password",
+      "required": true,
+      "placeholder": "Enter Password",
+      "keyboardType": "",
+      "value": "1234567"
+    },
+    {
+      "key": "radiobutton1",
+      "type": "RadioButton",
+      "label": "Gender",
+      "value": -1,
+      "items": [
+        {
+          "label": "Male",
+          "value": 1
+        },
+        {
+          "label": "Female",
+          "value": 2
+        }
+      ],
+      "required": true
+    },
+    {
+      "key": "switch1",
+      "type": "Switch",
+      "label": "Your age is above 18 ? ",
+      "value": false
+    },
+    {
+      "key": "checkbox1",
+      "type": "Checkbox",
+      "label": "Which languages do you speak ?",
+      "items": [
+        {
+          "label": "English",
+          "value": false
+        },
+        {
+          "label": "Hindi",
+          "value": false
+        },
+        {
+          "label": "Marathi",
+          "value": false
+        }
+      ]
+    },
+    {
+      "key": "select1",
+      "type": "Select",
+      "label": "Select Your Role",
+      "value": "Business Man",
+      "items": [
+        {
+          "label": "Business Man",
+          "value": "Business Man"
+        },
+        {
+          "label": "Developer",
+          "value": "Developer"
+        },
+        {
+          "label": "CA",
+          "value": "CA"
+        }
+      ]
+    },
+    {
+      "key": "date",
+      "type": "Date",
+      "label": "Select Date"
+    }
+  ]
+}
