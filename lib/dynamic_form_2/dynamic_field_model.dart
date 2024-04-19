@@ -1,3 +1,5 @@
+import 'package:dyanamic_form_with_json/dynamic_form_2/app_constant.dart';
+
 class DynamicFieldModel {
   String? title;
   String? description;
@@ -6,11 +8,11 @@ class DynamicFieldModel {
   DynamicFieldModel({this.title, this.description, this.fields});
 
   DynamicFieldModel.fromJson(Map<String, dynamic> json) {
-    title = json['title'];
-    description = json['description'];
-    if (json['fields'] != null) {
+    title = json[AppConstant.strTitle];
+    description = json[AppConstant.strDesc];
+    if (json[AppConstant.strFields] != null) {
       fields = <Fields>[];
-      json['fields'].forEach((v) {
+      json[AppConstant.strFields].forEach((v) {
         fields!.add(Fields.fromJson(v));
       });
     }
@@ -18,10 +20,10 @@ class DynamicFieldModel {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
-    data['title'] = title;
-    data['description'] = description;
+    data[AppConstant.strTitle] = title;
+    data[AppConstant.strDesc] = description;
     if (fields != null) {
-      data['fields'] = fields!.map((v) => v.toJson()).toList();
+      data[AppConstant.strFields] = fields!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -37,7 +39,7 @@ class Fields {
   String? helpText;
   String? keyboardType;
   String? pattern;
-  Map<String,dynamic>? validator;
+  Map<String, dynamic>? validator;
   dynamic value;
   bool? required;
   int? maxline;
@@ -45,43 +47,43 @@ class Fields {
 
   Fields(
       {this.key,
-        this.type,
-        this.label,
-        this.hiddenLabel,
-        this.placeholder,
-        this.decoration,
-        this.helpText,
-        this.keyboardType,
-        this.pattern,
-        this.validator,
-        this.value,
-        this.required,
-        this.maxline,
-        this.items});
+      this.type,
+      this.label,
+      this.hiddenLabel,
+      this.placeholder,
+      this.decoration,
+      this.helpText,
+      this.keyboardType,
+      this.pattern,
+      this.validator,
+      this.value,
+      this.required,
+      this.maxline,
+      this.items});
 
   Fields.fromJson(Map<String, dynamic> json) {
-    key = json['key'];
-    type = json['type'];
-    label = json['label'];
-    hiddenLabel = json['hiddenLabel'] ?? false;
-    placeholder = json['placeholder'];
-    decoration = json['decoration'];
-    helpText = json['helpText'];
-    keyboardType = json['keyboardType'];
-    pattern = json['pattern'];
+    key = json[AppConstant.strKey];
+    type = json[AppConstant.strType];
+    label = json[AppConstant.strHiddenLabel];
+    hiddenLabel = json[AppConstant.strHiddenLabel] ?? false;
+    placeholder = json[AppConstant.strPlaceholder];
+    decoration = json[AppConstant.strDecoration];
+    helpText = json[AppConstant.strHelpText];
+    keyboardType = json[AppConstant.strKeyboardType];
+    pattern = json[AppConstant.strPattern];
 
-    if (json['validator'] != null) {
+    if (json[AppConstant.strValidator] != null) {
       validator = {};
-      json['validator'].forEach((k,v) {
+      json[AppConstant.strValidator].forEach((k, v) {
         validator?[k] = ValidatorItem.fromJson(v);
       });
     }
-    value = json['value'];
-    required = json['required'];
-    maxline = json['maxline'];
-    if (json['items'] != null) {
+    value = json[AppConstant.strValue];
+    required = json[AppConstant.strRequired];
+    maxline = json[AppConstant.strMaxline];
+    if (json[AppConstant.strItems] != null) {
       items = <Items>[];
-      json['items'].forEach((v) {
+      json[AppConstant.strItems].forEach((v) {
         items!.add(Items.fromJson(v));
       });
     }
@@ -101,7 +103,7 @@ class Fields {
       data['items'] = items!.map((v) => v.toJson()).toList();
     }
     if (validator != null) {
-      data['validator'] = validator!.map((k,v) => v.toJson());
+      data['validator'] = validator!.map((k, v) => v.toJson());
     }
     return data;
   }
@@ -125,7 +127,6 @@ class Items {
     return data;
   }
 }
-
 
 class ValidatorItem {
   String? label;

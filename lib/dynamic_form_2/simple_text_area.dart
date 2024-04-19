@@ -124,8 +124,8 @@ class _SimpleText extends State<SimpleTextArea> {
                 },
               );
             })),
-            Icon(Icons.comment, size: 30), // Prefix icon
-            SizedBox(height: 8),
+            const Icon(Icons.comment, size: 30), // Prefix icon
+            const SizedBox(height: 8),
           ],
         ),
         ],

@@ -224,23 +224,7 @@ class _CoreFormState extends State<FormElement> {
           height: 30,
         ),
         if (completeText.isNotEmpty) Text(completeText),
-        InkWell(
-          onTap: () {
-            _pickFiles();
-          },
-          child: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
-            decoration: BoxDecoration(
-              color: Colors.grey[100],
-              border: Border.all(
-                color: Colors.black87, // Border color
-                width: 1, // Border width
-              ),
-              borderRadius: BorderRadius.circular(5), // Border radius
-            ),
-            child: const Text("Pick File"),
-          ),
-        ),
+        getPickImageWidget(),
         _fileName != null
             ? Image.memory(
                 Uint8List.fromList(_fileName!.bytes!),
@@ -399,7 +383,7 @@ class _CoreFormState extends State<FormElement> {
                 if (item.value == null || (item.value as List).isEmpty) {
                   setState(() {
                     widget.errorMessages![AppConstant.str_checkbox] =
-                        'Please select your Language !';
+                        AppConstant.str_select_language;
                   });
                   return;
                 } else {
@@ -466,23 +450,7 @@ class _CoreFormState extends State<FormElement> {
           .add(completeText.isNotEmpty ? Text("$completeText") : Container());
 
       listWidget.add(Column(children: [
-        InkWell(
-          onTap: () {
-            _pickFiles();
-          },
-          child: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
-            decoration: BoxDecoration(
-              color: Colors.grey[100],
-              border: Border.all(
-                color: Colors.black87, // Border color
-                width: 1, // Border width
-              ),
-              borderRadius: BorderRadius.circular(5), // Border radius
-            ),
-            child: const Text("Pick File"),
-          ),
-        ),
+          getPickImageWidget(),
         _fileName != null
             ? Image.memory(
           Uint8List.fromList(_fileName!.bytes!),
@@ -661,5 +629,25 @@ class _CoreFormState extends State<FormElement> {
 
   void _logException(String message) {
     print(message);
+  }
+
+  Widget getPickImageWidget() {
+    return InkWell(
+      onTap: () {
+        _pickFiles();
+      },
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+        decoration: BoxDecoration(
+          color: Colors.grey[100],
+          border: Border.all(
+            color: Colors.black87, // Border color
+            width: 1, // Border width
+          ),
+          borderRadius: BorderRadius.circular(5), // Border radius
+        ),
+        child: const Text("Pick File"),
+      ),
+    );
   }
 }
